@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shobhin Gowrisankar | DevOps Engineer</title>
+<meta name="description" content="Shobhin Gowrisankar Balasubramaniam, DevOps and Site Reliability Engineer in Atlanta. CI/CD, Terraform, Kubernetes, AWS and Azure.">
+<meta property="og:title" content="Shobhin Gowrisankar | DevOps Engineer">
+<meta property="og:description" content="CI/CD pipelines, Infrastructure as Code, and cloud reliability across AWS and Azure.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+/* Layout: a single column read like a pipeline run — hero with a live stage strip, impact readouts, release log of roles, toolchain mapped to the DevOps lifecycle. */
+:root {
+  --bg: #EEF1F4;
+  --surface: #FFFFFF;
+  --ink: #15202A;
+  --muted: #586776;
+  --line: #D3DAE1;
+  --accent: #0A6A86;
+  --accent-soft: #DCEBF0;
+  --pass: #1E7F4F;
+  --pass-soft: #DDEFE5;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E141A; --surface: #151E26; --ink: #DCE4EA; --muted: #93A3B1; --line: #26333F;
+    --accent: #5BB8D4; --accent-soft: #15303B; --pass: #5CC28F; --pass-soft: #14301F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E141A; --surface: #151E26; --ink: #DCE4EA; --muted: #93A3B1; --line: #26333F;
+  --accent: #5BB8D4; --accent-soft: #15303B; --pass: #5CC28F; --pass-soft: #14301F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0;
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* Top bar */
+.top {
+  display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;
+  padding-block: 22px; border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: 13px; color: var(--muted);
+}
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+.status { display: inline-flex; gap: 8px; align-items: center; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pass); box-shadow: 0 0 0 3px var(--pass-soft); }
+
+/* Hero */
+.hero { padding-block: 64px 40px; display: grid; gap: 28px; }
+.eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+h1 {
+  font-family: var(--display); font-stretch: 78%; font-weight: 800;
+  font-size: clamp(44px, 8.4vw, 92px); line-height: .95; letter-spacing: -.01em;
+  margin: 0; text-wrap: balance; overflow-wrap: anywhere;
+}
+h1 span { display: block; color: var(--muted); font-weight: 600; }
+.lede { font-size: clamp(17px, 2.1vw, 20px); max-width: 60ch; margin: 0; color: var(--ink); }
+.lede strong { font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  font-family: var(--mono); font-size: 14px; padding: 11px 16px; border-radius: 6px;
+  border: 1px solid var(--ink); background: var(--ink); color: var(--bg); text-decoration: none; cursor: pointer;
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+.email { font-family: var(--mono); font-size: 14px; color: var(--muted); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+
+/* Pipeline strip */
+.pipeline {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px; display: grid; gap: 14px; min-width: 0;
+}
+.pipe-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.pipe-head b { color: var(--ink); font-weight: 500; }
+.stages { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+.stage {
+  display: grid; gap: 6px; font-family: var(--mono); font-size: 12px; color: var(--muted);
+}
+.bar { height: 6px; border-radius: 3px; background: var(--pass); animation: fill .5s ease-out both; }
+.stage:nth-child(1) .bar { animation-delay: .05s } .stage:nth-child(2) .bar { animation-delay: .15s }
+.stage:nth-child(3) .bar { animation-delay: .25s } .stage:nth-child(4) .bar { animation-delay: .35s }
+.stage:nth-child(5) .bar { animation-delay: .45s } .stage:nth-child(6) .bar { animation-delay: .55s }
+.stage:nth-child(7) .bar { animation-delay: .65s } .stage:nth-child(8) .bar { animation-delay: .75s }
+@keyframes fill { from { background: var(--line); } to { background: var(--pass); } }
+.stage .tool { color: var(--ink); font-size: 11px; opacity: .75; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) { .stages { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 14px; } }
+@media (prefers-reduced-motion: reduce) { .bar { animation: none; } }
+
+/* Sections */
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 28px; }
+h2 {
+  font-family: var(--display); font-stretch: 85%; font-weight: 700; font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.05; margin: 0; text-wrap: balance;
+}
+.sec-note { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+/* Impact readouts */
+.readouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.readout { background: var(--surface); padding: 22px 20px; display: grid; gap: 6px; align-content: start; }
+.num { font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: 48px; line-height: 1; font-variant-numeric: tabular-nums; }
+.num small { font-size: 22px; font-weight: 700; margin-left: 2px; }
+.num.down { color: var(--accent); }
+.num.up { color: var(--pass); }
+.what { font-weight: 600; font-size: 15px; }
+.how { font-size: 14px; color: var(--muted); }
+@media (max-width: 760px) { .readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 440px) { .readouts { grid-template-columns: 1fr; } }
+
+/* Release log */
+.log { display: grid; gap: 0; }
+.role { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 8px 32px; padding-block: 26px; border-bottom: 1px solid var(--line); }
+.role:first-child { padding-top: 0; }
+.role:last-child { border-bottom: 0; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); display: grid; gap: 6px; align-content: start; }
+.tag { justify-self: start; font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
+.tag.current { background: var(--pass-soft); color: var(--pass); }
+.role h3 { font-family: var(--display); font-stretch: 90%; font-weight: 700; font-size: 22px; margin: 0; line-height: 1.2; }
+.org { color: var(--muted); font-size: 15px; margin: 2px 0 12px; }
+.role ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.role li { max-width: 68ch; }
+.role li::marker { color: var(--accent); }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.chip { font-family: var(--mono); font-size: 12px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); }
+@media (max-width: 640px) { .role { grid-template-columns: 1fr; } .when { grid-auto-flow: column; justify-content: start; align-items: center; gap: 12px; } }
+
+/* Toolchain by lifecycle */
+.lifecycle { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.phase { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.phase-name { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.phase-name b { font-family: var(--display); font-stretch: 90%; font-size: 18px; }
+.phase-name span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.phase p { margin: 0; font-size: 14px; color: var(--muted); }
+.phase .stack { margin-top: 0; }
+@media (max-width: 860px) { .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 440px) { .lifecycle { grid-template-columns: 1fr; } }
+
+/* Approach */
+.approach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.approach h3 { font-family: var(--display); font-stretch: 90%; font-size: 20px; margin: 0 0 6px; line-height: 1.2; }
+.approach p { margin: 0; color: var(--muted); font-size: 15px; }
+@media (max-width: 760px) { .approach { grid-template-columns: 1fr; } }
+
+/* Education */
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.edu h3 { font-size: 17px; font-weight: 600; margin: 0 0 4px; line-height: 1.35; }
+.edu p { margin: 0; color: var(--muted); font-size: 15px; }
+.edu .yr { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+@media (max-width: 640px) { .edu { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { padding-block: 56px 72px; border-top: 1px solid var(--line); display: grid; gap: 18px; }
+.contact h2 { font-size: clamp(32px, 5.4vw, 56px); font-stretch: 78%; font-weight: 800; }
+.contact-row > * { min-width: 0; overflow-wrap: anywhere; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; font-family: var(--mono); font-size: 15px; }
+.contact-row .k { color: var(--muted); margin-right: 8px; }
+.copied { font-family: var(--mono); font-size: 13px; color: var(--pass); }
+footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="status"><span class="dot" aria-hidden="true"></span>Open to DevOps &amp; SRE roles · Atlanta, GA</span>
+    <nav aria-label="Sections">
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolchain">Toolchain</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">DevOps Engineer · Site Reliability Engineer</div>
+    <h1>Shobhin Gowrisankar<span>Balasubramaniam</span></h1>
+    <p class="lede">I build and maintain the <strong>CI/CD pipelines</strong>, <strong>Infrastructure as Code</strong>, and monitoring that take code from commit to production safely. Nearly 5 years across AWS and Azure, cutting deployment time, raising release frequency, and keeping systems up.</p>
+    <div class="cta">
+      <a class="btn" href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">LinkedIn profile</a>
+      <button class="btn ghost" type="button" id="copy-email-hero">Copy email</button>
+      <span class="email">shobhingowrisankar@gmail.com</span>
+    </div>
+
+    <div class="pipeline" role="group" aria-label="Pipeline stages I work across, all passing">
+      <div class="pipe-head"><span><b>main</b> · delivery pipeline</span><span>8 / 8 stages passed</span></div>
+      <div class="stages">
+        <div class="stage"><div class="bar"></div>plan<span class="tool">Jira</span></div>
+        <div class="stage"><div class="bar"></div>code<span class="tool">Git</span></div>
+        <div class="stage"><div class="bar"></div>build<span class="tool">Jenkins</span></div>
+        <div class="stage"><div class="bar"></div>test<span class="tool">JMeter</span></div>
+        <div class="stage"><div class="bar"></div>scan<span class="tool">SonarQube</span></div>
+        <div class="stage"><div class="bar"></div>provision<span class="tool">Terraform</span></div>
+        <div class="stage"><div class="bar"></div>deploy<span class="tool">Kubernetes</span></div>
+        <div class="stage"><div class="bar"></div>monitor<span class="tool">Prometheus</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="impact">
+    <div class="sec-head"><h2>Impact</h2><span class="sec-note">measured results across roles</span></div>
+    <div class="readouts">
+      <div class="readout"><div class="num down">−40<small>%</small></div><div class="what">Deployment time</div><div class="how">Jenkins, GitLab CI/CD and Terraform build orchestration at Cognizant</div></div>
+      <div class="readout"><div class="num up">+30<small>%</small></div><div class="what">Deployment frequency</div><div class="how">Automated pipelines with Git-based workflows for MagMutual</div></div>
+      <div class="readout"><div class="num down">−20<small>%</small></div><div class="what">System downtime</div><div class="how">Prometheus, Grafana and CloudWatch monitoring</div></div>
+      <div class="readout"><div class="num up">99.99<small>%</small></div><div class="what">Uptime sustained</div><div class="how">AWS infrastructure built with Terraform and CloudFormation</div></div>
+      <div class="readout"><div class="num up">+25<small>%</small></div><div class="what">Security compliance</div><div class="how">SonarQube and Trivy scanning gates in the pipeline</div></div>
+      <div class="readout"><div class="num down">−30<small>%</small></div><div class="what">Production defects</div><div class="how">Static code analysis enforced in CI/CD</div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2><span class="sec-note">most recent first</span></div>
+    <div class="log">
+
+      <article class="role">
+        <div class="when"><span>Jan 2024 – Present</span><span class="tag current">current</span></div>
+        <div>
+          <h3>Reliability Engineer</h3>
+          <p class="org">IntellectPeople Technologies LLC · Georgia, USA · Client: MagMutual</p>
+          <ul>
+            <li>Built and maintained scalable AWS infrastructure (VPCs, EC2) using Infrastructure as Code with Terraform and CloudFormation, sustaining 99.99% uptime.</li>
+            <li>Participated in on-call rotation, troubleshooting production incidents and performing root cause analysis.</li>
+            <li>Automated and streamlined CI/CD pipelines in Jenkins and GitLab CI/CD, increasing deployment frequency by 30%.</li>
+            <li>Integrated static code analysis (SonarQube) and artifact scanning (Trivy) into pipelines, improving security compliance by 25%.</li>
+            <li>Containerized applications with Docker and Kubernetes using rolling deployments, reducing infrastructure costs by 15%.</li>
+            <li>Implemented performance monitoring with Prometheus, Grafana, and CloudWatch, reducing downtime by 20%.</li>
+          </ul>
+          <div class="stack"><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Kubernetes</span><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">MySQL</span></div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="when"><span>Jul 2023 – Sep 2023</span></div>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org">Kovan Tech Solutions · Houston, Texas</p>
+          <ul>
+            <li>Managed a hybrid Azure cloud environment for identity, VM, and storage resources.</li>
+            <li>Implemented Veeam Backup &amp; Replication for disaster recovery and compliance audits.</li>
+          </ul>
+          <div class="stack"><span class="chip">Azure</span><span class="chip">Veeam</span><span class="chip">Windows Server</span><span class="chip">ManageEngine</span></div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="when"><span>Mar 2021 – Sep 2021</span></div>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org">Cognizant · India</p>
+          <ul>
+            <li>Streamlined build orchestration with Jenkins, GitLab CI/CD, and Terraform, reducing deployment time by 40%.</li>
+            <li>Integrated SonarQube static code analysis into CI/CD pipelines, reducing production defects by 30%.</li>
+            <li>Increased observability with CloudWatch, Prometheus, and Grafana, reducing incident response times by 25%.</li>
+          </ul>
+          <div class="stack"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Azure SQL</span></div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="when"><span>Jan 2020 – Feb 2021</span></div>
+        <div>
+          <h3>Site Reliability Engineer</h3>
+          <p class="org">Doublene · India</p>
+          <ul>
+            <li>Automated infrastructure provisioning with Terraform and CloudFormation, increasing deployment efficiency by 30%.</li>
+            <li>Implemented DevSecOps practices with SonarQube static code analysis, improving security posture by 25%.</li>
+            <li>Upgraded MySQL and AWS RDS databases, automated backups, and implemented disaster recovery.</li>
+          </ul>
+          <div class="stack"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Terraform</span><span class="chip">SonarQube</span><span class="chip">AWS RDS</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="toolchain">
+    <div class="sec-head"><h2>Toolchain</h2><span class="sec-note">mapped to the DevOps lifecycle</span></div>
+    <div class="lifecycle">
+      <div class="phase"><div class="phase-name"><b>Plan</b><span>agile</span></div><p>Sprint work, change and incident tracking.</p><div class="stack"><span class="chip">Jira</span><span class="chip">ServiceNow</span><span class="chip">Scrum</span><span class="chip">Trello</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Code</b><span>scm</span></div><p>Source control, branching and scripting.</p><div class="stack"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">Groovy</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Build</b><span>ci</span></div><p>Build orchestration and pipeline automation.</p><div class="stack"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Azure DevOps</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Test &amp; Scan</b><span>quality</span></div><p>Static analysis, image scanning, load testing.</p><div class="stack"><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">JMeter</span><span class="chip">Locust</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Provision</b><span>iac</span></div><p>Infrastructure and configuration as code.</p><div class="stack"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">Ansible</span><span class="chip">Chef</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Deploy</b><span>cd</span></div><p>Containers, rolling releases, GitOps.</p><div class="stack"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Argo</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Operate</b><span>cloud &amp; data</span></div><p>Cloud platforms, databases, backup and recovery.</p><div class="stack"><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">MySQL</span><span class="chip">Veeam</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Monitor</b><span>observability</span></div><p>Metrics, dashboards and log analytics.</p><div class="stack"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">CloudWatch</span><span class="chip">Splunk</span><span class="chip">LogicMonitor</span></div></div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="sec-head"><h2>How I work</h2></div>
+    <div class="approach">
+      <div><h3>Security belongs in the pipeline</h3><p>Code analysis and image scanning run on every build, so problems are caught before release instead of after.</p></div>
+      <div><h3>Infrastructure is code</h3><p>Environments are defined in Terraform and CloudFormation, reviewed like any other change, and rebuilt the same way every time.</p></div>
+      <div><h3>If it isn't monitored, it isn't done</h3><p>Every service ships with metrics and dashboards, so the team sees problems before customers do.</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="edu">
+      <div><div class="yr">Dec 2023</div><h3>Master of Science in Information Systems Technology</h3><p>The George Washington University School of Business · Washington, DC</p></div>
+      <div><div class="yr">May 2021</div><h3>Bachelor of Engineering in Computer Science and Engineering</h3><p>Anna University · Chennai, India</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's talk about your delivery pipeline.</h2>
+    <div class="contact-row">
+      <span><span class="k">email</span><span class="email">shobhingowrisankar@gmail.com</span></span>
+      <button class="btn ghost" type="button" id="copy-email">Copy email</button>
+      <span class="copied" id="copied" hidden>Email copied</span>
+    </div>
+    <div class="contact-row">
+      <span><span class="k">linkedin</span><a href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">www.linkedin.com/in/shobhin-gowrisankar</a></span>
+    </div>
+  </section>
+
+  <footer>Atlanta, Georgia · DevOps Engineer · CI/CD · Site Reliability</footer>
+</div>
+
+<script>
+(function () {
+  var EMAIL = "shobhingowrisankar@gmail.com";
+  var note = document.getElementById("copied");
+  function selectText(el) {
+    try { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+  }
+  function copy(btn) {
+    var target = btn.parentElement.querySelector(".email") || document.querySelector(".email");
+    var done = function () { btn.textContent = "Copied"; if (note) note.hidden = false; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
+    try {
+      navigator.clipboard.writeText(EMAIL).then(done, function () { selectText(target); });
+    } catch (e) { selectText(target); }
+  }
+  ["copy-email", "copy-email-hero"].forEach(function (id) {
+    var b = document.getElementById(id);
+    if (b) b.addEventListener("click", function () { copy(b); });
+  });
+})();
+</script>
+</body>
+</html>
