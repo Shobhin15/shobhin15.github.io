@@ -1,10 +1,10 @@
 # Shobhin Gowrisankar | DevOps Portfolio
 
-![CI/CD](https://github.com/YOUR-USERNAME/YOUR-REPO/actions/workflows/deploy.yml/badge.svg)
+![CI/CD](https://github.com/shobhin15/shobhin15.github.io/actions/workflows/deploy.yml/badge.svg)
 
 Personal portfolio site for **Shobhin Gowrisankar Balasubramaniam**, DevOps and Site Reliability Engineer based in Atlanta, GA.
 
-**Live site:** https://YOUR-USERNAME.github.io/YOUR-REPO/
+**Live site:** https://shobhin15.github.io/
 
 The site itself is delivered through a small CI/CD pipeline: every push is linted, built into a container, smoke-tested, and deployed to GitHub Pages only when every stage passes.
 
