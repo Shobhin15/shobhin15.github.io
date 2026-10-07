@@ -190,7 +190,7 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
   <div class="hero">
     <div class="eyebrow">DevOps Engineer · Site Reliability Engineer</div>
     <h1>Shobhin Gowrisankar<span>Balasubramaniam</span></h1>
-    <p class="lede">I build and maintain the <strong>CI/CD pipelines</strong>, <strong>Infrastructure as Code</strong>, and monitoring that take code from commit to production safely. Nearly 5 years across AWS and Azure, cutting deployment time, raising release frequency, and keeping systems up.</p>
+    <p class="lede">I build and maintain the <strong>CI/CD pipelines</strong>, <strong>Infrastructure as Code</strong>, and monitoring that take code from commit to production safely. Nearly 5 years across AWS, GCP, and Azure. Right now I&#8217;m moving a financial services platform from AWS to GCP while keeping it at 99.99% uptime.</p>
     <div class="cta">
       <a class="btn" href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">LinkedIn profile</a>
       <button class="btn ghost" type="button" id="copy-email-hero">Copy email</button>
@@ -234,14 +234,15 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>Reliability Engineer</h3>
           <p class="org">IntellectPeople Technologies LLC · Georgia, USA · Client: MagMutual</p>
           <ul>
-            <li>Built and maintained scalable AWS infrastructure (VPCs, EC2) using Infrastructure as Code with Terraform and CloudFormation, sustaining 99.99% uptime.</li>
-            <li>Participated in on-call rotation, troubleshooting production incidents and performing root cause analysis.</li>
-            <li>Automated and streamlined CI/CD pipelines in Jenkins and GitLab CI/CD, increasing deployment frequency by 30%.</li>
-            <li>Integrated static code analysis (SonarQube) and artifact scanning (Trivy) into pipelines, improving security compliance by 25%.</li>
-            <li>Containerized applications with Docker and Kubernetes using rolling deployments, reducing infrastructure costs by 15%.</li>
-            <li>Implemented performance monitoring with Prometheus, Grafana, and CloudWatch, reducing downtime by 20%.</li>
+            <li>Migrating production workloads from AWS to Google Cloud Platform (Compute Engine, GKE), keeping monitoring, alerting, and SLOs intact through each cutover.</li>
+            <li>Maintain highly available AWS infrastructure (VPCs, EC2, RDS) in Terraform and CloudFormation, holding 99.99% uptime.</li>
+            <li>Run CI/CD in Jenkins and GitLab CI/CD with GitOps deployments to Kubernetes through Argo CD, raising deployment frequency by 30%.</li>
+            <li>Added SonarQube and Trivy as pipeline quality gates, so code or container images with known issues stop before release; security compliance rose 25%.</li>
+            <li>Built Prometheus, Grafana, and CloudWatch dashboards and alerts tied to SLOs and SLAs, cutting downtime by 20%.</li>
+            <li>Share a 24x7 on-call rotation across AWS and GCP, lead root cause analysis and post-mortems, and work vendor tickets to resolution.</li>
+            <li>Lead small infrastructure projects and mentor engineers on Kubernetes, monitoring, and on-call practices.</li>
           </ul>
-          <div class="stack"><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Kubernetes</span><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">MySQL</span></div>
+          <div class="stack"><span class="chip">GCP</span><span class="chip">GKE</span><span class="chip">AWS</span><span class="chip">Terraform</span><span class="chip">Argo CD</span><span class="chip">Kubernetes</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SonarQube</span><span class="chip">Trivy</span></div>
         </div>
       </article>
 
@@ -251,10 +252,10 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>DevOps Engineer</h3>
           <p class="org">Kovan Tech Solutions · Houston, Texas</p>
           <ul>
-            <li>Managed a hybrid Azure cloud environment for identity, VM, and storage resources.</li>
-            <li>Implemented Veeam Backup &amp; Replication for disaster recovery and compliance audits.</li>
+            <li>Managed a hybrid Azure environment (identity, VMs, storage), kept Windows systems patched, and set up Veeam Backup &amp; Replication for disaster recovery.</li>
+            <li>Supported applications on Red Hat OpenShift and resolved Tier-2/Tier-3 incidents through ManageEngine, documenting fixes and configurations.</li>
           </ul>
-          <div class="stack"><span class="chip">Azure</span><span class="chip">Veeam</span><span class="chip">Windows Server</span><span class="chip">ManageEngine</span></div>
+          <div class="stack"><span class="chip">Azure</span><span class="chip">OpenShift</span><span class="chip">Veeam</span><span class="chip">Windows Server</span><span class="chip">ManageEngine</span></div>
         </div>
       </article>
 
@@ -264,11 +265,12 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>DevOps Engineer</h3>
           <p class="org">Cognizant · India</p>
           <ul>
-            <li>Streamlined build orchestration with Jenkins, GitLab CI/CD, and Terraform, reducing deployment time by 40%.</li>
-            <li>Integrated SonarQube static code analysis into CI/CD pipelines, reducing production defects by 30%.</li>
-            <li>Increased observability with CloudWatch, Prometheus, and Grafana, reducing incident response times by 25%.</li>
+            <li>Cut deployment time by 40% by streamlining build and release automation in Jenkins, GitLab CI/CD, and Terraform.</li>
+            <li>Brought SonarQube static code analysis into CI/CD pipelines, which reduced production defects by 30%.</li>
+            <li>Improved observability with Prometheus, Grafana, and CloudWatch, so incidents were spotted and answered 25% faster.</li>
+            <li>Wrote Python automation scripts for routine operational tasks and ran services on Docker and Kubernetes.</li>
           </ul>
-          <div class="stack"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Azure SQL</span></div>
+          <div class="stack"><span class="chip">Python</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Azure SQL</span></div>
         </div>
       </article>
 
@@ -278,11 +280,11 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>Site Reliability Engineer</h3>
           <p class="org">Doublene · India</p>
           <ul>
-            <li>Automated infrastructure provisioning with Terraform and CloudFormation, increasing deployment efficiency by 30%.</li>
-            <li>Implemented DevSecOps practices with SonarQube static code analysis, improving security posture by 25%.</li>
-            <li>Upgraded MySQL and AWS RDS databases, automated backups, and implemented disaster recovery.</li>
+            <li>Automated infrastructure provisioning with Terraform and CloudFormation, making deployments 30% more efficient.</li>
+            <li>Deployed and maintained applications on Red Hat OpenShift and set up disaster recovery for mission-critical services.</li>
+            <li>Upgraded MySQL and AWS RDS databases and automated their backups; introduced SonarQube scanning, improving security posture by 25%.</li>
           </ul>
-          <div class="stack"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Terraform</span><span class="chip">SonarQube</span><span class="chip">AWS RDS</span></div>
+          <div class="stack"><span class="chip">AWS</span><span class="chip">OpenShift</span><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">SonarQube</span><span class="chip">AWS RDS</span></div>
         </div>
       </article>
 
@@ -297,18 +299,18 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
       <div class="phase"><div class="phase-name"><b>Build</b><span>ci</span></div><p>Build orchestration and pipeline automation.</p><div class="stack"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Azure DevOps</span></div></div>
       <div class="phase"><div class="phase-name"><b>Test &amp; Scan</b><span>quality</span></div><p>Static analysis, image scanning, load testing.</p><div class="stack"><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">JMeter</span><span class="chip">Locust</span></div></div>
       <div class="phase"><div class="phase-name"><b>Provision</b><span>iac</span></div><p>Infrastructure and configuration as code.</p><div class="stack"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">Ansible</span><span class="chip">Chef</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Deploy</b><span>cd</span></div><p>Containers, rolling releases, GitOps.</p><div class="stack"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Argo</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Operate</b><span>cloud &amp; data</span></div><p>Cloud platforms, databases, backup and recovery.</p><div class="stack"><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">MySQL</span><span class="chip">Veeam</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Deploy</b><span>cd</span></div><p>Containers, rolling releases, GitOps.</p><div class="stack"><span class="chip">Kubernetes</span><span class="chip">GKE</span><span class="chip">OpenShift</span><span class="chip">Docker</span><span class="chip">Argo CD</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Operate</b><span>cloud &amp; data</span></div><p>Cloud platforms, databases, backup and recovery.</p><div class="stack"><span class="chip">GCP Compute Engine</span><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Azure</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">MySQL</span><span class="chip">Veeam</span></div></div>
       <div class="phase"><div class="phase-name"><b>Monitor</b><span>observability</span></div><p>Metrics, dashboards and log analytics.</p><div class="stack"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">CloudWatch</span><span class="chip">Splunk</span><span class="chip">LogicMonitor</span></div></div>
     </div>
   </section>
 
   <section id="approach">
-    <div class="sec-head"><h2>How I work</h2></div>
+    <div class="sec-head"><h2>What I&#8217;m working on</h2><span class="sec-note">at MagMutual, 2024 to now</span></div>
     <div class="approach">
-      <div><h3>Security belongs in the pipeline</h3><p>Code analysis and image scanning run on every build, so problems are caught before release instead of after.</p></div>
-      <div><h3>Infrastructure is code</h3><p>Environments are defined in Terraform and CloudFormation, reviewed like any other change, and rebuilt the same way every time.</p></div>
-      <div><h3>If it isn't monitored, it isn't done</h3><p>Every service ships with metrics and dashboards, so the team sees problems before customers do.</p></div>
+      <div><h3>Moving a live platform from AWS to GCP</h3><p>Shifting production workloads onto Compute Engine and GKE without letting monitoring, alerting, or SLOs lapse during cutover.</p></div>
+      <div><h3>GitOps for Kubernetes</h3><p>Deployments go through Argo CD alongside Jenkins and GitLab CI/CD, so what runs in the cluster matches what&#8217;s in Git.</p></div>
+      <div><h3>Owning production</h3><p>A 24x7 on-call rotation across both clouds, root cause analysis and post-mortems after incidents, and mentoring newer engineers.</p></div>
     </div>
   </section>
 
