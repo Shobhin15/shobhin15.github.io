@@ -36,7 +36,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t portfolio:${{ github.sha }} .
       - name: Run container
-        run: docker run -d --name portfolio -p 8080:80 portfolio:${{ github.sha }}
+        run: docker run -d --name portfolio -p 8080:8080 portfolio:${{ github.sha }}
       - name: Smoke test
         run: |
           for i in $(seq 1 10); do
@@ -47,10 +47,56 @@ jobs:
           done
           echo "Smoke test failed"; docker logs portfolio; exit 1
 
+  helm-kind-test:
+    name: Helm lint and install on kind
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+      - name: Lint chart for every environment
+        run: |
+          helm lint charts/portfolio
+          helm lint charts/portfolio -f charts/portfolio/values-dev.yaml
+          helm lint charts/portfolio -f charts/portfolio/values-prod.yaml
+      - name: Render prod manifests
+        run: helm template portfolio charts/portfolio -f charts/portfolio/values-prod.yaml
+      - name: Create kind cluster
+        uses: helm/kind-action@v1
+        with:
+          cluster_name: portfolio
+      - name: Build image and load it into kind
+        run: |
+          docker build -t portfolio:ci .
+          kind load docker-image portfolio:ci --name portfolio
+      - name: Install chart
+        run: |
+          helm install portfolio charts/portfolio \
+            -f charts/portfolio/values-dev.yaml \
+            --set image.tag=ci --wait --timeout 3m
+      - name: Run helm test
+        run: helm test portfolio --logs
+      - name: Smoke test through the Service
+        run: |
+          kubectl port-forward svc/portfolio 8081:80 >/dev/null 2>&1 &
+          for i in $(seq 1 15); do
+            if curl -fsS http://localhost:8081/ | grep -q "Shobhin Gowrisankar"; then
+              echo "Chart smoke test passed"; exit 0
+            fi
+            sleep 2
+          done
+          echo "Chart smoke test failed"; exit 1
+      - name: Show cluster state on failure
+        if: failure()
+        run: |
+          kubectl get all
+          kubectl describe pods -l app.kubernetes.io/name=portfolio
+          kubectl logs -l app.kubernetes.io/name=portfolio --tail=50
+
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: [validate, container-smoke-test]
+    needs: [validate, container-smoke-test, helm-kind-test]
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages

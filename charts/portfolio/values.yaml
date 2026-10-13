@@ -1,0 +1,58 @@
+# Default values for the portfolio chart.
+# Environment-specific overrides live in values-dev.yaml and values-prod.yaml.
+
+replicaCount: 2
+
+image:
+  repository: portfolio
+  # Defaults to the chart appVersion when empty
+  tag: ""
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Port NGINX listens on inside the container (nginx-unprivileged uses 8080)
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 25m
+    memory: 32Mi
+  limits:
+    cpu: 100m
+    memory: 64Mi
+
+# Run as the non-root nginx user with a locked-down container
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 101
+  runAsGroup: 101
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+ingress:
+  enabled: false
+  className: ""
+  host: portfolio.local
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 70
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1

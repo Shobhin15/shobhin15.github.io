@@ -1,0 +1,15 @@
+# Prod: autoscaling, a disruption budget, and an ingress
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+ingress:
+  enabled: true
+  className: nginx
+  host: portfolio.example.com

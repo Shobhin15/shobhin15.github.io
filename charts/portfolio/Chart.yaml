@@ -1,0 +1,9 @@
+apiVersion: v2
+name: portfolio
+description: Helm chart for Shobhin's DevOps portfolio site, served by unprivileged NGINX
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+maintainers:
+  - name: Shobhin Gowrisankar Balasubramaniam
+    url: https://shobhin15.github.io

@@ -1,0 +1,8 @@
+{{ include "portfolio.fullname" . }} is deployed.
+
+To open the site locally:
+  kubectl port-forward svc/{{ include "portfolio.fullname" . }} 8080:{{ .Values.service.port }}
+  then visit http://localhost:8080
+
+To run the built-in connectivity test:
+  helm test {{ .Release.Name }}

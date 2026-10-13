@@ -1,0 +1,13 @@
+# Dev: a single small replica, no disruption budget (so local clusters can drain freely)
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    cpu: 50m
+    memory: 32Mi
+
+podDisruptionBudget:
+  enabled: false
