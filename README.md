@@ -94,4 +94,5 @@ helm template portfolio charts/portfolio -f charts/portfolio/values-prod.yaml
 ## Contact
 
 - LinkedIn: [www.linkedin.com/in/shobhin-gowrisankar](https://www.linkedin.com/in/shobhin-gowrisankar)
+- GitHub: [github.com/Shobhin15](https://github.com/Shobhin15)
 - Email: shobhingowrisankar@gmail.com

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shobhin Gowrisankar | DevOps Engineer</title>
-<meta name="description" content="Shobhin Gowrisankar Balasubramaniam, DevOps and Site Reliability Engineer in Atlanta. CI/CD, Terraform, Kubernetes, AWS and Azure.">
+<meta name="description" content="Shobhin Gowrisankar Balasubramaniam, DevOps and Site Reliability Engineer in Atlanta. CI/CD, Terraform, Kubernetes, AWS, GCP and Azure.">
 <meta property="og:title" content="Shobhin Gowrisankar | DevOps Engineer">
-<meta property="og:description" content="CI/CD pipelines, Infrastructure as Code, and cloud reliability across AWS and Azure.">
+<meta property="og:description" content="CI/CD pipelines, Infrastructure as Code, and cloud reliability across AWS, GCP and Azure.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +152,18 @@ h2 {
 @media (max-width: 860px) { .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 440px) { .lifecycle { grid-template-columns: 1fr; } }
 
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.project h3 { font-family: var(--display); font-stretch: 90%; font-weight: 700; font-size: 21px; margin: 0; line-height: 1.2; }
+.project h3 a { color: var(--ink); text-decoration-color: var(--accent); }
+.project .sub { margin: 0; color: var(--muted); font-size: 15px; }
+.project ul { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; }
+.project li::marker { color: var(--accent); }
+.project .stack { margin-top: 6px; }
+.project:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
+
 /* Approach */
 .approach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .approach h3 { font-family: var(--display); font-stretch: 90%; font-size: 20px; margin: 0 0 6px; line-height: 1.2; }
@@ -178,21 +190,25 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
 <body>
 <div class="wrap">
   <header class="top">
-    <span class="status"><span class="dot" aria-hidden="true"></span>Open to DevOps &amp; SRE roles · Atlanta, GA</span>
+    <span class="status"><span class="dot" aria-hidden="true"></span>Open to DevOps &amp; SRE roles · Atlanta, GA · Open to relocation</span>
     <nav aria-label="Sections">
       <a href="#impact">Impact</a>
       <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#toolchain">Toolchain</a>
       <a href="#contact">Contact</a>
+      <a href="https://github.com/Shobhin15" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
   </header>
 
   <div class="hero">
     <div class="eyebrow">DevOps Engineer · Site Reliability Engineer</div>
     <h1>Shobhin Gowrisankar<span>Balasubramaniam</span></h1>
-    <p class="lede">I build and maintain the <strong>CI/CD pipelines</strong>, <strong>Infrastructure as Code</strong>, and monitoring that take code from commit to production safely. Nearly 5 years across AWS, GCP, and Azure. Right now I&#8217;m moving a healthcare liability insurer&#8217;s platform from AWS to GCP while keeping it at 99.99% uptime.</p>
+    <p class="lede">I build and maintain the <strong>CI/CD pipelines</strong>, <strong>Infrastructure as Code</strong>, and monitoring that take code from commit to production safely. 4+ years across AWS, GCP, and Azure. At MagMutual, a healthcare liability insurer, I keep core services at 99.99% uptime and moved 8 workloads from AWS to GCP.</p>
     <div class="cta">
       <a class="btn" href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">LinkedIn profile</a>
+      <a class="btn ghost" href="https://github.com/Shobhin15" target="_blank" rel="noopener">GitHub</a>
       <button class="btn ghost" type="button" id="copy-email-hero">Copy email</button>
       <span class="email">shobhingowrisankar@gmail.com</span>
     </div>
@@ -216,11 +232,11 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
     <div class="sec-head"><h2>Impact</h2><span class="sec-note">measured results across roles</span></div>
     <div class="readouts">
       <div class="readout"><div class="num down">−40<small>%</small></div><div class="what">Deployment time</div><div class="how">Jenkins, GitLab CI/CD and Terraform build orchestration at Cognizant</div></div>
-      <div class="readout"><div class="num up">+30<small>%</small></div><div class="what">Deployment frequency</div><div class="how">Automated pipelines with Git-based workflows for MagMutual</div></div>
-      <div class="readout"><div class="num down">−20<small>%</small></div><div class="what">System downtime</div><div class="how">Prometheus, Grafana and CloudWatch monitoring</div></div>
-      <div class="readout"><div class="num up">99.99<small>%</small></div><div class="what">Uptime sustained</div><div class="how">AWS infrastructure built with Terraform and CloudFormation</div></div>
-      <div class="readout"><div class="num up">+25<small>%</small></div><div class="what">Security compliance</div><div class="how">SonarQube and Trivy scanning gates in the pipeline</div></div>
-      <div class="readout"><div class="num down">−30<small>%</small></div><div class="what">Production defects</div><div class="how">Static code analysis enforced in CI/CD</div></div>
+      <div class="readout"><div class="num up">+30<small>%</small></div><div class="what">Deployment frequency</div><div class="how">GitHub Actions, Jenkins and Argo CD with canary rollouts and automated rollback at MagMutual</div></div>
+      <div class="readout"><div class="num down">−20<small>%</small></div><div class="what">System downtime</div><div class="how">Datadog APM tracing, Prometheus, Grafana and SLO-based alerting</div></div>
+      <div class="readout"><div class="num up">99.99<small>%</small></div><div class="what">Uptime sustained</div><div class="how">AWS infrastructure built from reusable Terraform modules</div></div>
+      <div class="readout"><div class="num up">+25<small>%</small></div><div class="what">Security compliance</div><div class="how">Keyless OIDC, least-privilege IAM, and SonarQube and Trivy gates</div></div>
+      <div class="readout"><div class="num down">−30<small>%</small></div><div class="what">Cloud cost</div><div class="how">Right-sizing instances and node pools and tuning autoscaling</div></div>
     </div>
   </section>
 
@@ -234,15 +250,17 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>Reliability Engineer</h3>
           <p class="org">IntellectPeople Technologies LLC · Georgia, USA · Client: MagMutual</p>
           <ul>
-            <li>Migrating production workloads from AWS to Google Cloud Platform (Compute Engine, GKE), keeping monitoring, alerting, and SLOs intact through each cutover.</li>
-            <li>Maintain highly available AWS infrastructure (VPCs, EC2, RDS) in Terraform and CloudFormation, holding 99.99% uptime.</li>
-            <li>Run CI/CD in Jenkins and GitLab CI/CD with GitOps deployments to Kubernetes through Argo CD, raising deployment frequency by 30%.</li>
-            <li>Added SonarQube and Trivy as pipeline quality gates, so code or container images with known issues stop before release; security compliance rose 25%.</li>
-            <li>Built Prometheus, Grafana, and CloudWatch dashboards and alerts tied to SLOs and SLAs, cutting downtime by 20%.</li>
-            <li>Share a 24x7 on-call rotation across AWS and GCP, lead root cause analysis and post-mortems, and work vendor tickets to resolution.</li>
-            <li>Lead small infrastructure projects and mentor engineers on Kubernetes, monitoring, and on-call practices.</li>
+            <li>Moved 8 workloads from AWS to Google Cloud (GKE, Cloud Run, Cloud SQL), co-writing the migration roadmap and keeping monitoring, alerting, and SLOs intact through each cutover.</li>
+            <li>Keep core services at 99.99% uptime on AWS (EC2, VPC, RDS, S3), built from reusable Terraform modules, CloudFormation, and Ansible.</li>
+            <li>Raised deployment frequency 30% with CI/CD in GitHub Actions, Jenkins, and GitLab CI that ships Docker images to EKS and GKE through Argo CD and Helm, with canary rollouts and automated rollback.</li>
+            <li>Cut downtime 20% by defining SLIs and SLOs and building Datadog APM tracing, Prometheus and Grafana dashboards, and Splunk logging.</li>
+            <li>Raised security compliance 25% by replacing stored pipeline keys with keyless OIDC, enforcing least-privilege IAM and Okta SSO, and adding SonarQube and Trivy gates.</li>
+            <li>Cut cloud cost 30% by right-sizing instances and node pools and tuning autoscaling.</li>
+            <li>Share a 24x7 on-call rotation, lead root cause analysis and post-mortems, and fix the cause, such as adding consumer autoscaling after RabbitMQ crashes.</li>
+            <li>Automate patching and routine operations with Python, Bash, Ansible, and AWX, and use AI tools like Claude Code and GitHub Copilot every day.</li>
+            <li>Take production changes through CAB approval, support teams in Slack, write Confluence runbooks, and mentored 2 engineers through on-call.</li>
           </ul>
-          <div class="stack"><span class="chip">GCP</span><span class="chip">GKE</span><span class="chip">AWS</span><span class="chip">Terraform</span><span class="chip">Argo CD</span><span class="chip">Kubernetes</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SonarQube</span><span class="chip">Trivy</span></div>
+          <div class="stack"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">GKE</span><span class="chip">EKS</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Argo CD</span><span class="chip">Helm</span><span class="chip">Jenkins</span><span class="chip">Datadog</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Trivy</span><span class="chip">Python</span></div>
         </div>
       </article>
 
@@ -252,10 +270,12 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>DevOps Engineer</h3>
           <p class="org">Kovan Tech Solutions · Houston, Texas</p>
           <ul>
-            <li>Managed a hybrid Azure environment (identity, VMs, storage), kept Windows systems patched, and set up Veeam Backup &amp; Replication for disaster recovery.</li>
-            <li>Supported applications on Red Hat OpenShift and resolved Tier-2/Tier-3 incidents through ManageEngine, documenting fixes and configurations.</li>
+            <li>Managed a hybrid Azure environment: VMs, VNets, NSGs, Load Balancer, Application Gateway, and Entra ID access.</li>
+            <li>Monitored workloads with Azure Monitor and Log Analytics (KQL), setting alerts and fixing VM and network issues.</li>
+            <li>Installed, upgraded, and supported Red Hat OpenShift on VMware and Hyper-V, and helped set up Veeam backup and disaster recovery.</li>
+            <li>Resolved Tier-2/Tier-3 incidents through ManageEngine, documenting fixes, and patched and standardized Windows systems with PowerShell.</li>
           </ul>
-          <div class="stack"><span class="chip">Azure</span><span class="chip">OpenShift</span><span class="chip">Veeam</span><span class="chip">Windows Server</span><span class="chip">ManageEngine</span></div>
+          <div class="stack"><span class="chip">Azure</span><span class="chip">Azure Monitor</span><span class="chip">OpenShift</span><span class="chip">VMware</span><span class="chip">Veeam</span><span class="chip">Windows Server</span><span class="chip">PowerShell</span><span class="chip">ManageEngine</span></div>
         </div>
       </article>
 
@@ -265,52 +285,73 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <h3>DevOps Engineer</h3>
           <p class="org">Cognizant · India</p>
           <ul>
-            <li>Cut deployment time by 40% by streamlining build and release automation in Jenkins, GitLab CI/CD, and Terraform.</li>
-            <li>Brought SonarQube static code analysis into CI/CD pipelines, which reduced production defects by 30%.</li>
-            <li>Improved observability with Prometheus, Grafana, and CloudWatch, so incidents were spotted and answered 25% faster.</li>
-            <li>Wrote Python automation scripts for routine operational tasks and ran services on Docker and Kubernetes.</li>
+            <li>Cut deployment time by 40% by automating build and release steps in Azure DevOps Pipelines (YAML and classic), Jenkins, GitLab CI/CD, and Terraform for a global delivery team.</li>
+            <li>Deployed containerized services to Azure Kubernetes Service (AKS) and Azure App Service, backed by Azure SQL.</li>
+            <li>Brought SonarQube static code analysis into the CI/CD pipelines and wrote Python scripts for routine operational tasks.</li>
           </ul>
-          <div class="stack"><span class="chip">Python</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Azure SQL</span></div>
+          <div class="stack"><span class="chip">Azure DevOps</span><span class="chip">AKS</span><span class="chip">App Service</span><span class="chip">Azure SQL</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">Python</span></div>
         </div>
       </article>
 
-      <article class="role">
-        <div class="when"><span>Jan 2020 – Feb 2021</span></div>
-        <div>
-          <h3>Site Reliability Engineer</h3>
-          <p class="org">Doublene · India</p>
-          <ul>
-            <li>Automated infrastructure provisioning with Terraform and CloudFormation, making deployments 30% more efficient.</li>
-            <li>Deployed and maintained applications on Red Hat OpenShift and set up disaster recovery for mission-critical services.</li>
-            <li>Upgraded MySQL and AWS RDS databases and automated their backups; introduced SonarQube scanning, improving security posture by 25%.</li>
-          </ul>
-          <div class="stack"><span class="chip">AWS</span><span class="chip">OpenShift</span><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">SonarQube</span><span class="chip">AWS RDS</span></div>
-        </div>
-      </article>
+    </div>
+  </section>
 
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><span class="sec-note">built and run end to end, code on GitHub</span></div>
+    <div class="projects">
+      <article class="project">
+        <h3><a href="https://github.com/Shobhin15/gcp-runbook-assistant" target="_blank" rel="noopener">GCP Runbook Assistant</a></h3>
+        <p class="sub">LLM agent, RAG, and MCP server for on-call engineers</p>
+        <ul>
+          <li>Answers on-call questions from runbooks with Vertex AI and Gemini (RAG), citing its sources.</li>
+          <li>An agent triages incidents by calling read-only tools: Cloud Logging errors, Cloud Run status, and runbook search.</li>
+          <li>The same tools are served as a read-only MCP server, with argument validation, an allow-list, and call limits on every tool call.</li>
+          <li>Shipped through GitHub Actions with tests, a container health check, and keyless OIDC deploys to Cloud Run via Terraform.</li>
+        </ul>
+        <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Vertex AI</span><span class="chip">Cloud Run</span><span class="chip">MCP</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span></div>
+      </article>
+      <article class="project">
+        <h3><a href="https://github.com/Shobhin15/multitenant-platform" target="_blank" rel="noopener">Multi-Tenant Kubernetes Platform</a></h3>
+        <p class="sub">Self-service tenant onboarding with isolation by default</p>
+        <ul>
+          <li>Terraform onboards each tenant with a namespace, quotas, default-deny network policies, RBAC, and Pod Security.</li>
+          <li>Argo CD ApplicationSets deploy every tenant from its own Kustomize overlay.</li>
+          <li>GitHub Actions runs terraform validate, kubeconform, and Trivy on every change, and a smoke test proves cross-tenant traffic is blocked.</li>
+        </ul>
+        <div class="stack"><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">Argo CD</span><span class="chip">Kustomize</span><span class="chip">Trivy</span><span class="chip">GitHub Actions</span></div>
+      </article>
+      <article class="project">
+        <h3><a href="https://github.com/Shobhin15/shobhin15.github.io" target="_blank" rel="noopener">This portfolio</a></h3>
+        <p class="sub">A static site shipped like a production service</p>
+        <ul>
+          <li>Every push is linted, built into a non-root NGINX image, smoke-tested, and deployed to GitHub Pages only when all checks pass.</li>
+          <li>Also packaged as a Helm chart with dev and prod values, installed on a throwaway kind cluster and verified with helm test in CI.</li>
+        </ul>
+        <div class="stack"><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">kind</span><span class="chip">NGINX</span></div>
+      </article>
     </div>
   </section>
 
   <section id="toolchain">
     <div class="sec-head"><h2>Toolchain</h2><span class="sec-note">mapped to the DevOps lifecycle</span></div>
     <div class="lifecycle">
-      <div class="phase"><div class="phase-name"><b>Plan</b><span>agile</span></div><p>Sprint work, change and incident tracking.</p><div class="stack"><span class="chip">Jira</span><span class="chip">ServiceNow</span><span class="chip">Scrum</span><span class="chip">Trello</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Code</b><span>scm</span></div><p>Source control, branching and scripting.</p><div class="stack"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">Groovy</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Build</b><span>ci</span></div><p>Build orchestration and pipeline automation.</p><div class="stack"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Azure DevOps</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Plan</b><span>agile</span></div><p>Sprint work, change and incident tracking.</p><div class="stack"><span class="chip">Jira</span><span class="chip">ServiceNow</span><span class="chip">Confluence</span><span class="chip">Scrum</span><span class="chip">Trello</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Code</b><span>scm</span></div><p>Source control, branching and scripting.</p><div class="stack"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">PowerShell</span><span class="chip">Groovy</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Build</b><span>ci</span></div><p>Build orchestration and pipeline automation.</p><div class="stack"><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">Azure DevOps</span></div></div>
       <div class="phase"><div class="phase-name"><b>Test &amp; Scan</b><span>quality</span></div><p>Static analysis, image scanning, load testing.</p><div class="stack"><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">JMeter</span><span class="chip">Locust</span></div></div>
       <div class="phase"><div class="phase-name"><b>Provision</b><span>iac</span></div><p>Infrastructure and configuration as code.</p><div class="stack"><span class="chip">Terraform</span><span class="chip">CloudFormation</span><span class="chip">Ansible</span><span class="chip">Chef</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Deploy</b><span>cd</span></div><p>Containers, rolling releases, GitOps.</p><div class="stack"><span class="chip">Kubernetes</span><span class="chip">GKE</span><span class="chip">OpenShift</span><span class="chip">Docker</span><span class="chip">Argo CD</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Operate</b><span>cloud &amp; data</span></div><p>Cloud platforms, databases, backup and recovery.</p><div class="stack"><span class="chip">GCP Compute Engine</span><span class="chip">AWS EC2</span><span class="chip">VPC</span><span class="chip">Azure</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">MySQL</span><span class="chip">Veeam</span></div></div>
-      <div class="phase"><div class="phase-name"><b>Monitor</b><span>observability</span></div><p>Metrics, dashboards and log analytics.</p><div class="stack"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">CloudWatch</span><span class="chip">Splunk</span><span class="chip">LogicMonitor</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Deploy</b><span>cd</span></div><p>Containers, rolling releases, GitOps.</p><div class="stack"><span class="chip">Kubernetes</span><span class="chip">EKS</span><span class="chip">GKE</span><span class="chip">AKS</span><span class="chip">OpenShift</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">Argo CD</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Operate</b><span>cloud &amp; data</span></div><p>Cloud platforms, databases, backup and recovery.</p><div class="stack"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">RabbitMQ</span><span class="chip">Veeam</span></div></div>
+      <div class="phase"><div class="phase-name"><b>Monitor</b><span>observability</span></div><p>Metrics, dashboards and log analytics.</p><div class="stack"><span class="chip">Datadog</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">CloudWatch</span><span class="chip">Splunk</span><span class="chip">Azure Monitor</span><span class="chip">LogicMonitor</span></div></div>
     </div>
   </section>
 
   <section id="approach">
-    <div class="sec-head"><h2>What I&#8217;m working on</h2><span class="sec-note">at MagMutual, 2024 to now</span></div>
+    <div class="sec-head"><h2>How I work</h2><span class="sec-note">at MagMutual, 2024 to now</span></div>
     <div class="approach">
-      <div><h3>Moving a live platform from AWS to GCP</h3><p>Shifting production workloads onto Compute Engine and GKE without letting monitoring, alerting, or SLOs lapse during cutover.</p></div>
-      <div><h3>GitOps for Kubernetes</h3><p>Deployments go through Argo CD alongside Jenkins and GitLab CI/CD, so what runs in the cluster matches what&#8217;s in Git.</p></div>
-      <div><h3>Owning production</h3><p>A 24x7 on-call rotation across both clouds, root cause analysis and post-mortems after incidents, and mentoring newer engineers.</p></div>
+      <div><h3>Safe, boring releases</h3><p>Deployments go through Argo CD with canary rollouts and automated rollback, so what runs in the cluster matches what&#8217;s in Git and a bad release backs itself out.</p></div>
+      <div><h3>Owning production</h3><p>A 24x7 on-call rotation across AWS and GCP, root cause analysis and post-mortems after incidents, and fixes that stop the same page from coming back.</p></div>
+      <div><h3>AI where it helps</h3><p>I use coding agents every day and built a read-only AI assistant that helps on-call engineers triage faster, with guardrails on every tool call.</p></div>
     </div>
   </section>
 
@@ -333,9 +374,12 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
     <div class="contact-row">
       <span><span class="k">linkedin</span><a href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">www.linkedin.com/in/shobhin-gowrisankar</a></span>
     </div>
+    <div class="contact-row">
+      <span><span class="k">github</span><a href="https://github.com/Shobhin15" target="_blank" rel="noopener">github.com/Shobhin15</a></span>
+    </div>
   </section>
 
-  <footer>Atlanta, Georgia · DevOps Engineer · CI/CD · Site Reliability</footer>
+  <footer>Atlanta, Georgia · Open to relocation · DevOps Engineer · CI/CD · Site Reliability</footer>
 </div>
 
 <script>
