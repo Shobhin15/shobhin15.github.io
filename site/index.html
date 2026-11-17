@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shobhin Gowrisankar | DevOps Engineer</title>
+<title>Shobhin Gowrisankar | DevOps &amp; SRE</title>
 <meta name="description" content="Shobhin Gowrisankar Balasubramaniam, DevOps and Site Reliability Engineer in Atlanta. CI/CD, Terraform, Kubernetes, AWS, GCP and Azure.">
-<meta property="og:title" content="Shobhin Gowrisankar | DevOps Engineer">
+<meta property="og:title" content="Shobhin Gowrisankar | DevOps &amp; SRE">
 <meta property="og:description" content="CI/CD pipelines, Infrastructure as Code, and cloud reliability across AWS, GCP and Azure.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://shobhin15.github.io/">
+<meta property="og:image" content="https://shobhin15.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shobhin Gowrisankar Balasubramaniam, DevOps and Site Reliability Engineer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
@@ -67,10 +74,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 h1 {
   font-family: var(--display); font-stretch: 78%; font-weight: 800;
-  font-size: clamp(44px, 8.4vw, 92px); line-height: .95; letter-spacing: -.01em;
+  font-size: clamp(32px, 8.4vw, 92px); line-height: .95; letter-spacing: -.01em;
   margin: 0; text-wrap: balance; overflow-wrap: anywhere;
 }
 h1 span { display: block; color: var(--muted); font-weight: 600; }
+@media (max-width: 560px) { h1 { font-size: 9vw; } }
 .lede { font-size: clamp(17px, 2.1vw, 20px); max-width: 60ch; margin: 0; color: var(--ink); }
 .lede strong { font-weight: 600; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -209,6 +217,7 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
     <div class="cta">
       <a class="btn" href="https://www.linkedin.com/in/shobhin-gowrisankar" target="_blank" rel="noopener">LinkedIn profile</a>
       <a class="btn ghost" href="https://github.com/Shobhin15" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="Shobhin_Balasubramaniam_Resume.pdf" download>Resume (PDF)</a>
       <button class="btn ghost" type="button" id="copy-email-hero">Copy email</button>
       <span class="email">shobhingowrisankar@gmail.com</span>
     </div>
@@ -251,14 +260,11 @@ footer { padding-block: 0 32px; font-family: var(--mono); font-size: 12px; color
           <p class="org">IntellectPeople Technologies LLC · Georgia, USA · Client: MagMutual</p>
           <ul>
             <li>Moved 8 workloads from AWS to Google Cloud (GKE, Cloud Run, Cloud SQL), co-writing the migration roadmap and keeping monitoring, alerting, and SLOs intact through each cutover.</li>
-            <li>Keep core services at 99.99% uptime on AWS (EC2, VPC, RDS, S3), built from reusable Terraform modules, CloudFormation, and Ansible.</li>
+            <li>Keep core services at 99.99% uptime on AWS (EC2, VPC, RDS, S3) built from reusable Terraform modules, and cut cloud cost 30% by right-sizing instances and node pools.</li>
             <li>Raised deployment frequency 30% with CI/CD in GitHub Actions, Jenkins, and GitLab CI that ships Docker images to EKS and GKE through Argo CD and Helm, with canary rollouts and automated rollback.</li>
             <li>Cut downtime 20% by defining SLIs and SLOs and building Datadog APM tracing, Prometheus and Grafana dashboards, and Splunk logging.</li>
             <li>Raised security compliance 25% by replacing stored pipeline keys with keyless OIDC, enforcing least-privilege IAM and Okta SSO, and adding SonarQube and Trivy gates.</li>
-            <li>Cut cloud cost 30% by right-sizing instances and node pools and tuning autoscaling.</li>
-            <li>Share a 24x7 on-call rotation, lead root cause analysis and post-mortems, and fix the cause, such as adding consumer autoscaling after RabbitMQ crashes.</li>
-            <li>Automate patching and routine operations with Python, Bash, Ansible, and AWX, and use AI tools like Claude Code and GitHub Copilot every day.</li>
-            <li>Take production changes through CAB approval, support teams in Slack, write Confluence runbooks, and mentored 2 engineers through on-call.</li>
+            <li>Share a 24x7 on-call rotation, lead root cause analysis and post-mortems, fix the cause (such as adding consumer autoscaling after RabbitMQ crashes), and mentored 2 engineers through on-call.</li>
           </ul>
           <div class="stack"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">GKE</span><span class="chip">EKS</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Argo CD</span><span class="chip">Helm</span><span class="chip">Jenkins</span><span class="chip">Datadog</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Trivy</span><span class="chip">Python</span></div>
         </div>
